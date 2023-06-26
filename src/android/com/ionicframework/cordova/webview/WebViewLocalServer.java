@@ -106,6 +106,8 @@ public class WebViewLocalServer {
         tempResponseHeaders = responseHeaders;
       }
       tempResponseHeaders.put("Cache-Control", "no-cache");
+      tempResponseHeaders.put("Access-Control-Allow-Origin", "*");
+      tempResponseHeaders.put("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
       this.responseHeaders = tempResponseHeaders;
     }
 
@@ -259,6 +261,8 @@ public class WebViewLocalServer {
         }
         tempResponseHeaders.put("Accept-Ranges", "bytes");
         tempResponseHeaders.put("Content-Range", "bytes " + fromRange + "-" + range + "/" + totalRange);
+        tempResponseHeaders.put("Access-Control-Allow-Origin", "*");
+        tempResponseHeaders.put("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
       } catch (IOException e) {
         statusCode = 404;
       }
